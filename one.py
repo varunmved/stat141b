@@ -1,17 +1,13 @@
 import pandas as pd
-import os
 from os import listdir
 from os.path import isfile, join
 
 fruit_path = "data/fruit/"
 
-num_files = sum(os.path.isfile(os.path.join(fruit_path, f)) for f in os.listdir(fruit_path))
-
 onlyfiles = [f.split('.xlsx', 1)[0] for f in listdir(fruit_path) if isfile(join(fruit_path, f))]
 
+#i don't use this
 col = ["type", "food", "form", "price_per_lb", "yield_v", "lb_per_cup", "price_per_cup"]
-
-df = pd.DataFrame()
 
 def extract(fruit):
     bkb = pd.read_excel(fruit_path + fruit+".xlsx", header= None, skiprows = [0,1,2])
@@ -20,8 +16,6 @@ def extract(fruit):
     yield_v = fresh_row[3]
     lb_per_cup = fresh_row[4]
     price_per_cup = fresh_row[6]
-    lout = ["fruit", fruit, "Fresh1" , price_per_lb, yield_v, lb_per_cup, price_per_cup]
-
     dout = {"type" : ["fruit"], "food" : [fruit], "form": ["Fresh1"], "price_per_lb" :[price_per_lb] , "yield_v":[yield_v], "lb_per_cup":[lb_per_cup], "price_per_cup":[price_per_cup]}
 
     return dout

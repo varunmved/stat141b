@@ -1,17 +1,13 @@
 import pandas as pd
-import os
 from os import listdir
 from os.path import isfile, join
 
 vegetable_path = "data/vegetables/"
 
-num_files = sum(os.path.isfile(os.path.join(vegetable_path, f)) for f in os.listdir(vegetable_path))
-
 onlyfiles = [f.split('.xlsx', 1)[0] for f in listdir(vegetable_path) if isfile(join(vegetable_path, f))]
 
+#i dont use this
 col = ["type", "food", "form", "price_per_lb", "yield_v", "lb_per_cup", "price_per_cup"]
-
-df = pd.DataFrame()
 
 def extract(vegetable):
     bkb = pd.read_excel(vegetable_path + vegetable+".xlsx", header= None, skiprows = [0,1,2])
@@ -39,6 +35,5 @@ def getVegetable(vegetableList):
             l.append(new_df)
     df2 = pd.concat(l, axis = 0)
     return df2
-
 
 print(getVegetable(onlyfiles))
