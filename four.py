@@ -16,7 +16,7 @@ col = ["type", "food", "form", "price_per_lb", "yield_v", "lb_per_cup", "price_p
 df = pd.DataFrame()
 
 #extract function, works for both fruits and veggies
-def extract(path, obj):
+def extract(typeO, path, obj):
     bkb = pd.read_excel(path + obj+".xlsx", header= None, skiprows = [0,1,2])
     fresh_row = bkb.iloc[0]
     price_per_lb = fresh_row[1]
@@ -24,7 +24,7 @@ def extract(path, obj):
     lb_per_cup = fresh_row[4]
     price_per_cup = fresh_row[6]
 
-    dout = {"type" : [str(obj)], "food" : [obj], "form": ["Fresh1"], "price_per_lb" :[price_per_lb] , "yield_v":[yield_v], "lb_per_cup":[lb_per_cup], "price_per_cup":[price_per_cup]}
+    dout = {"type" : [typeO], "food" : [obj], "form": ["Fresh1"], "price_per_lb" :[price_per_lb] , "yield_v":[yield_v], "lb_per_cup":[lb_per_cup], "price_per_cup":[price_per_cup]}
 
     return dout
 
@@ -34,12 +34,12 @@ def getBoth(fruitList, vegetableList):
     l = []
     for f in fruitList:
         if '$' not in f:
-            d = extract(fruit_path, f)
+            d = extract("fruit", fruit_path, f)
             new_df = pd.DataFrame.from_dict(d)
             l.append(new_df)
     for f in vegetableList:
          if '$' not in f:
-            d = extract(vegetable_path, f)
+            d = extract("vegetables", vegetable_path, f)
             new_df = pd.DataFrame.from_dict(d)
             l.append(new_df)
 
@@ -52,5 +52,12 @@ def cleanData(df):
     df2 = df2[pd.notnull(df2['price_per_cup'])]
     return df2
 
+# * What kinds of fruits are the most expensive (per pound)? What kinds are the least expensive?
+def q1(df):
+    fruits = df.loc[df['type'] == "fruits"]
+    maxFruit = fruits.idxmax(axis=3)
+    return maxFruit
+
+
 merged_df = getBoth(fruitFiles, vegetableFiles)
-print(cleanData(merged_df))
+clean_df = cleanData(merged_df)
