@@ -35,20 +35,20 @@ def ndb_search(searchObject):
     searchList = request.json()
     return searchList[u'list']
 
+# part 2
 def csvToListOfFood():
     #we only need the food to do our search
     df = pd.read_csv('fresh.csv', skipinitialspace=True, usecols=FIELDS)
     #remove duplicates
     df = df.drop_duplicates(subset="food", keep='last')
     df['ndbList'] = 0
-    df['report'] = 0
     #only return the first 6 values
-    df = df.head(n=2)
+    df = df.head(n=5)
     return df
 
 def searchOne(searchTerm):
-    #print(searchTerm)
     ndbl = []
+    #add ", Raw" for more accurate results
     resp = (ndb_search(searchTerm+ ", Raw"))
     if not resp['item']:
         resp = ndb_search(searchTerm)
@@ -60,16 +60,20 @@ def searchOne(searchTerm):
     return ndbl[0]
 
 def addNdbNumToDf(df):
+    #fill the ndb numbers by using an apply function, wohoo!
     df['ndbList'] = df['food'].apply(searchOne)
     return df
 
-def ndb_report(nbdNumber):
+# part 3
+def ndb_report_request(nbdNumber):
+    #api call for report
     url = "https://api.nal.usda.gov/ndb/V2/reports/"
     querystring = {"ndbno":nbdNumber,"format":"json","api_key":"ULxnv6kWU0vTif6L3wHrB5MIkQKj0PrM3IfgfWbG"}
     response = requests.request("GET", url, params=querystring)
     return (response.text)
 
 def parseNdbJson(ndbj):
+    #grab just what we need for each nutrition response
     p = ndbj['foods'][0]['food']['nutrients']
     return p
 
@@ -82,14 +86,11 @@ def ndb_report(ndbNumber):
         outl.append(food)
     return outl
 
-def dfToReport(df):
-    df['report'] = df['ndbList'].apply(ndb_report)
-    return df
+
 
 #print(ndb_search("quail eggs"))
 #print(searchOne("kiwi"))
 #print(csvToListOfFood())
-a = (csvToListOfFood())
-a = (addNdbNumToDf(a))
-print(dfToReport(a))
-#print(ndb_report("09326"))
+#a = (csvToListOfFood())
+#print(addNdbNumToDf(a))
+print(ndb_report("09326"))
