@@ -62,7 +62,7 @@ def addNdbNumToDf(df):
     df['ndbList'] = df['food'].apply(searchOne)
     return df
 
-def ndb_report_request(nbdNumber):
+def ndb_report(nbdNumber):
     url = "https://api.nal.usda.gov/ndb/V2/reports/"
     querystring = {"ndbno":nbdNumber,"format":"json","api_key":"ULxnv6kWU0vTif6L3wHrB5MIkQKj0PrM3IfgfWbG"}
     response = requests.request("GET", url, params=querystring)
