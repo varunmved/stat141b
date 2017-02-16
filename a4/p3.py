@@ -2,7 +2,7 @@
 #from urlparse import urlparse, urlunparse
 import requests#, requests_cache
 import pandas as pd
-#import json
+import json
 
 
 # my API key
@@ -66,14 +66,15 @@ def ndb_report_request(nbdNumber):
     url = "https://api.nal.usda.gov/ndb/V2/reports/"
     querystring = {"ndbno":nbdNumber,"format":"json","api_key":"ULxnv6kWU0vTif6L3wHrB5MIkQKj0PrM3IfgfWbG"}
     response = requests.request("GET", url, params=querystring)
-    return (response.json)
+    return (response.text)
 
 def parseNdbJson(ndbj):
-    p = ndbj['foods'][0]
+    p = ndbj['foods'][0]['food']['nutrients']
     return p
 
 def ndb_report(ndbNumber):
-    ndbj = ndb_report_request(ndbNumber)
+    ndbt = ndb_report_request(ndbNumber)
+    ndbj = json.loads(ndbt)
     foods = parseNdbJson(ndbj)
     return foods
 
