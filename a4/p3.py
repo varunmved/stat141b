@@ -41,8 +41,9 @@ def csvToListOfFood():
     #remove duplicates
     df = df.drop_duplicates(subset="food", keep='last')
     df['ndbList'] = 0
+    df['report'] = 0
     #only return the first 6 values
-    df = df.head(n=5)
+    df = df.head(n=2)
     return df
 
 def searchOne(searchTerm):
@@ -73,14 +74,22 @@ def parseNdbJson(ndbj):
     return p
 
 def ndb_report(ndbNumber):
+    outl = []
     ndbt = ndb_report_request(ndbNumber)
     ndbj = json.loads(ndbt)
     foods = parseNdbJson(ndbj)
-    return foods
+    for food in foods:
+        outl.append(food)
+    return outl
+
+def dfToReport(df):
+    df['report'] = df['ndbList'].apply(ndb_report)
+    return df
 
 #print(ndb_search("quail eggs"))
 #print(searchOne("kiwi"))
 #print(csvToListOfFood())
-#a = (csvToListOfFood())
-#print(addNdbNumToDf(a))
-print(ndb_report("09326"))
+a = (csvToListOfFood())
+a = (addNdbNumToDf(a))
+print(dfToReport(a))
+#print(ndb_report("09326"))

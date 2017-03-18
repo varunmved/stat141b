@@ -1,0 +1,52 @@
+[<h3 class="story-h">
+<a href="https://theaggie.org/2017/02/22/photo-of-the-week-2222017/">
+<span class="story-title">Photo of the Week: 2/22/2017</span>
+<span class="story-time">  - 23 hours ago</span>
+</a>
+</h3>, <h3 class="story-h">
+<a href="https://theaggie.org/2017/02/22/senate-candidate-zaki-shaheen-withdraws-from-race/">
+<span class="story-title">Senate candidate Zaki Shaheen withdraws from race</span>
+<span class="story-time">  - 1 day ago</span>
+</a>
+</h3>, <h3 class="story-h">
+<a href="https://theaggie.org/2017/02/21/lecturers-associates-and-assistants-what-is-a-professor/">
+<span class="story-title">Lecturers, associates and assistants: what is a professor?</span>
+<span class="story-time">  - 2 days ago</span>
+</a>
+</h3>, <h3 class="story-h">
+<a href="https://theaggie.org/2017/02/21/davis-stands-with-muslim-residents/">
+<span class="story-title">Davis stands with Muslim residents</span>
+<span class="story-time">  - 2 days ago</span>
+</a>
+</h3>, <h3 class="story-h">
+<a href="https://theaggie.org/2017/02/21/looking-for-life-on-other-planets/">
+<span class="story-title">Looking for life on other planets</span>
+<span class="story-time">  - 2 days ago</span>
+</a>
+</h3>, <h3 class="story-h">
+<a href="https://theaggie.org/2017/02/21/uc-davis-experiences-several-recent-hate-based-crimes/">
+<span class="story-title">UC Davis experiences several recent hate-based crimes</span>
+<span class="story-time">  - 2 days ago</span>
+</a>
+</h3>, <h3 class="story-h">
+<a href="https://theaggie.org/2017/02/21/what-are-your-thoughts-on-uc-davis-athletics/">
+<span class="story-title">What are your thoughts on UC Davis athletics?</span>
+<span class="story-time">  - 2 days ago</span>
+</a>
+</h3>, <h3 class="story-h">
+<a href="https://theaggie.org/2017/02/21/serious-health-effects-linked-to-agent-orange-exposure/">
+<span class="story-title">Serious health effects linked to Agent Orange exposure</span>
+<span class="story-time">  - 2 days ago</span>
+</a>
+</h3>, <h3 class="story-h">
+<a href="https://theaggie.org/2017/02/21/late-night-eats-in-davis/">
+<span class="story-title">Late-night eats in Davis</span>
+<span class="story-time">  - 2 days ago</span>
+</a>
+</h3>, <h3 class="story-h">
+<a href="https://theaggie.org/2017/02/21/2017-oscar-nominations-and-predictions/">
+<span class="story-title">2017 Oscar Nominations and Predictions</span>
+<span class="story-time">  - 2 days ago</span>
+</a>
+</h3>]
+['\nPhoto of the Week: 2/22/2017\n  - 23 hours ago\n', '\nSenate candidate Zaki Shaheen withdraws from race\n  - 1 day ago\n', '\nLecturers, associates and assistants: what is a professor?\n  - 2 days ago\n', '\nDavis stands with Muslim residents\n  - 2 days ago\n', '\nLooking for life on other planets\n  - 2 days ago\n', '\nUC Davis experiences several recent hate-based crimes\n  - 2 days ago\n', '\nWhat are your thoughts on UC Davis athletics?\n  - 2 days ago\n', '\nSerious health effects linked to Agent Orange exposure\n  - 2 days ago\n', '\nLate-night eats in Davis\n  - 2 days ago\n', '\n2017 Oscar Nominations and Predictions\n  - 2 days ago\n']
